@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+
+
+</head>
+<body>
+<button class="btn btn-danger" id="openWarn">警告！</button>
+<button class="btn btn-danger" id="NoSayButKnow">确认框1</button>
+<button class="btn btn-warning" id="btn2">输入框2</button>
+
+
+<button class="btn btn-danger" id="btn3">颜色类型，请在方法中修改type5</button>
+<button class="btn btn-danger" id="btn4">带图标的提示框(加载)4</button>
+<button class="btn btn-danger" id="btn5">确认框5 各种样式可选</button>
+<button class="btn btn-danger" id="btn6">确认框6 确认后继续提示</button>
+<button class="btn btn-danger" id="btn7">很多漂亮的按钮！</button>
+<button class="btn btn-danger" id="btn8">带引导倾向的按钮</button>
+<button class="btn btn-danger" id="btn9">监听键盘 鼠标事件来响应</button>
+<button class="btn btn-danger" id="btn10">按钮全部隐藏 只能通过按键来关闭！</button>
+<button class="btn btn-danger" id="btn11">添加图标很简单 icon</button>
+<button class="btn btn-danger" id="btn12">添加关闭图标(可以换的哦！) icon</button>
+<button class="btn btn-danger" id="btn13">可以调整弹窗的大小,也可以用bootstrap的样式来调整！</button>
+<hr>
+<h1>动画</h1>
+
+
+<button class="btn btn-success" id="btn15">旋转X模式</button>
+<button class="btn btn-danger" id="btn16">旋转Y模式</button>
+<button class="btn btn-danger" id="btn17">旋转YR模式</button>
+<button class="btn btn-dark" id="btn18">旋转XR模式</button>
+
+<h2>2D动画</h2>
+<button class="btn btn-dark" id="btn19">右出右入</button>
+<button class="btn btn-light" id="btn20">左出左入</button>
+<button class="btn btn-danger" id="btn21">下出下入</button>
+<button class="btn btn-light" id="btn22">上出上入</button>
+<button class="btn btn-danger" id="btn23">旋转进入</button>
+<button class="btn btn-light" id="btn24">透明度丝滑进入</button>
+<h3>3D动画</h3>
+
+<!--<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>-->
+
+<button class="btn btn-secondary" id="btn25">zoom</button>
+<button class="btn btn-success" id="btn26">上下压缩</button>
+<button class="btn btn-info" id="btn27">左右压缩</button>
+<button class="btn btn-success" id="btn28">左右扩张</button>
+<button class="btn btn-dark" id="btn29">上下扩张</button>
+<h3>弹跳效果</h3>
+<button class="btn btn-dark" id="btn30">弹跳效果，可调停留时间</button>
+<button class="btn btn-success" id="btn31">调整弹窗出现消失时间快慢</button>
+
+<h3>主题效果</h3>
+<button class="btn btn-primary example4">Light theme</button>
+<button class="btn btn-primary example5">Dark theme</button>
+<button class="btn btn-primary example5-3-3">Modern</button>
+<button class="btn btn-primary example5-3">Supervan</button>
+<button class="btn btn-primary example5-3-1">Material</button>
+<button class="btn btn-primary example5-3-2">Bootstrap</button>
+
+<h3>自动关闭</h3>
+<button id="btn33">自动关闭1</button>
+<button id="btn34">自动关闭2</button>
+
+<h3>关闭时提示！</h3>
+<button id="btn35">抖动</button>
+<button id="btn36">辉光</button>
+
+<button class="btn btn-primary example22-1-1-1">Shake (default)</button>
+<button class="btn btn-primary example22-1-1-2">Glow</button>
+
+
+<script src="jquery-3.7.1.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+
+<script src="实现.js"></script>
+<script src="实现2.js"></script>
+
+<!--主题效果-->
+<script src="实现3.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#openWarn").on('click', function (event) {
+            $(event.target).css({
+                transition: "5s",
+                backgroundColor: "red",
+                color: "#070000",
+                width: "100px",
+                height: "100px"
+            })
+            $(event.target).text("报错！！！")
+
+            $.confirm({
+                title: '警告！',
+                content: '你是个傻逼！',
+                type: 'red',
+                typeAnimated: true,
+                buttons: {
+
+                    tryAgain: {
+                        text: '再试一次',
+                        btnClass: 'btn-red',
+                        action: function () {
+                            console.log("再试一次！")
+                        }
+                    },
+                    close: {
+                        text: '关闭',
+                        function() {
+                            console.log("关闭！")
+                        }
+                    }
+                }
+            });
+        })
+
+
+        $("#NoSayButKnow").on('click', function () {
+
+            $.confirm({
+                confirmButton: 'Yes i agree',
+                cancelButton: 'NO never !'
+            });
+
+
+            /*  $.confirm({
+                  title: '确认!',
+                  content: '确认框',
+                  buttons: {
+                      confirm: {
+                          text: '确认',
+                          action: function () {
+                              $.alert('你单击了确认！');
+                          }
+                      },
+                      cancel: {
+                          text: '取消',
+                          action: function () {
+                              $.alert('你单击了取消!');
+                          }
+                      },
+                      somethingElse: {
+                          text: '不了',
+                          btnClass: 'btn-blue',
+                          keys: ['enter', 'shift'],
+                          action: function(){
+                              $.alert('哈哈?');
+                          }
+                      }
+                  }
+              });
+  */
+        })
+
+
+    })
+
+
+</script>
+</body>
+</html>
